@@ -4,8 +4,6 @@ ArrayList particles;
 
 boolean click = false;
 
-float gravity = 0.3;
-
 void setup() {
 
   size(800, 600);
@@ -13,13 +11,14 @@ void setup() {
   ellipseMode(CENTER);
 
   particles = new ArrayList();
-  particles.add(new Particle(random(50, width - 50), random(50, height), random(5, 50), random(5, 50), random(-1, 1)));
+  particles.add(new Particle(mouseX, mouseY, random(5, 50), random(5, 50), random(-1, 1)));
+
+  println(particles.size());
 }
 
 void draw() {
 
   background(255);
-  println(particles.size()); 
 
   for (int i = 0; i < particles.size(); i++) {
 
@@ -29,11 +28,33 @@ void draw() {
     p.drawParticle();
   }
 }
-
 void mousePressed() {
 
-  if (particles.size() > 0) {
-    //particles.remove(0);
-    particles.clear();
+  particles.add(new Particle(mouseX, mouseY, random(5, 50), random(5, 50), random(-1, 1)));
+  println(particles.size());
+}
+
+void keyPressed() {
+
+  if (keyPressed == true) {
+
+    if (keyCode == ENTER) {
+
+      particles.clear();
+      println(particles.size());
+    }
+  }
+  if (keyCode == UP) {
+
+    particles.add(new Particle(mouseX, mouseY, random(5, 50), random(5, 50), random(-1, 1)));
+    println(particles.size());
+  }
+
+  if (keyCode == DOWN) {
+
+    if (particles.size() > 0) {
+      particles.remove(0);
+      println(particles.size());
+    }
   }
 }

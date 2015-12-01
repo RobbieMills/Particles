@@ -9,8 +9,7 @@ class Particle {
   float ParticleSpeedY;
 
   float ParticleMass = 1;
-
-  float r = 5;
+  float gravity = 0.3;
 
   Particle(float _ParticleXpos, float _ParticleYpos, float _ParticleWidth, float _ParticleHeight, float _ParticleSpeedX) {
 
