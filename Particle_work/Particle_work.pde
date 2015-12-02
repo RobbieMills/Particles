@@ -1,7 +1,7 @@
 //Robbie Mills
 
-ArrayList particles;
-ArrayList precisedeleterects;
+ArrayList<Particle> particles;
+ArrayList<PreciseDelete> precisedeleterects;
 
 boolean click = false;
 
@@ -12,10 +12,8 @@ void setup() {
   ellipseMode(CENTER);
   textAlign(CENTER, CENTER);
 
-  particles = new ArrayList();
-  precisedeleterects = new ArrayList();
-
-  particles.add(new Particle(mouseX, mouseY, random(5, 50), random(5, 50), random(-1, 1)));
+  particles = new ArrayList<Particle>();
+  precisedeleterects = new ArrayList<PreciseDelete>();
 
   precisedeleterects.add(new PreciseDelete(100, 50, 50, 50, "1"));
   precisedeleterects.add(new PreciseDelete(200, 50, 50, 50, "2"));
@@ -23,28 +21,25 @@ void setup() {
   precisedeleterects.add(new PreciseDelete(400, 50, 50, 50, "4"));
   precisedeleterects.add(new PreciseDelete(500, 50, 50, 50, "5"));
   precisedeleterects.add(new PreciseDelete(600, 50, 50, 50, "6"));
-
-  println(particles.size());
 }
 
 void draw() {
 
   background(255);
 
-  for (int i = 0; i < precisedeleterects.size(); i++) {
+  for (PreciseDelete z : precisedeleterects) {
 
-    PreciseDelete z = (PreciseDelete) precisedeleterects.get(i);
     z.drawRect();
   }
 
-  for (int i = 0; i < particles.size(); i++) {
+  for (Particle p : particles) {
 
-    Particle p = (Particle) particles.get(i);
     p.updateParticle();
     p.particleBoundary();
     p.drawParticle();
   }
 }
+
 void mousePressed() {
 
   particles.add(new Particle(mouseX, mouseY, random(5, 50), random(5, 50), random(-1, 1)));
