@@ -1,5 +1,15 @@
 //Robbie Mills
 
+//-----------------Interactions------------------//
+// Use the num. keys to delete the corresponding rects.  
+// Click to add a Paricle.  
+// Use the up arrow to add a particle at the mouse pos(Hold to add multiple particles).
+// Use the down arrow to remove a particle at the mouse pos(Hold to remove multiple particles).
+// Use the ENTER key to clear all particles.
+//-----------------------------------------------//
+
+PImage img;
+
 ArrayList<Particle> particles;
 ArrayList<PreciseDelete> precisedeleterects;
 
@@ -10,7 +20,10 @@ void setup() {
   size(800, 600);
   frameRate(60);
   ellipseMode(CENTER);
+  smooth();
   textAlign(CENTER, CENTER);
+
+  img = loadImage("background.jpg");
 
   particles = new ArrayList<Particle>();
   precisedeleterects = new ArrayList<PreciseDelete>();
@@ -25,7 +38,10 @@ void setup() {
 
 void draw() {
 
-  background(255);
+  //background(255);
+  image(img, 0, 0);
+  //color ParticleColour = get(ParticleXpos, ParticleYpos);
+
 
   for (PreciseDelete z : precisedeleterects) {
 
@@ -43,7 +59,7 @@ void draw() {
 void mousePressed() {
 
   particles.add(new Particle(mouseX, mouseY, random(5, 50), random(5, 50), random(-1, 1)));
-  println(particles.size());
+  println("Particle Arraylist size:" + particles.size());
 }
 
 void keyPressed() {
@@ -53,20 +69,20 @@ void keyPressed() {
     if (keyCode == ENTER) {
 
       particles.clear();
-      println(particles.size());
+      println("Particle Arraylist size:" + particles.size());
     }
   }
   if (keyCode == UP) {
 
     particles.add(new Particle(mouseX, mouseY, random(5, 50), random(5, 50), random(-1, 1)));
-    println(particles.size());
+    println("Particle Arraylist size:" + particles.size());
   }
 
   if (keyCode == DOWN) {
 
     if (particles.size() > 0) {
       particles.remove(0);
-      println(particles.size());
+      println("Particle Arraylist size:" + particles.size());
     }
   }
 
@@ -76,7 +92,7 @@ void keyPressed() {
     if (key == '1') {
       if (precisedeleterects.size() > 0) {
         precisedeleterects.remove(0);
-        println(precisedeleterects.size());
+        println("PreciseDelete Arraylist size:" + precisedeleterects.size());
       }
     }
   }
@@ -85,7 +101,7 @@ void keyPressed() {
     if (key == '2') {
       if (precisedeleterects.size() > 0) {
         precisedeleterects.remove(1);
-        println(precisedeleterects.size());
+        println("PreciseDelete Arraylist size:" + precisedeleterects.size());
       }
     }
   }
@@ -94,7 +110,7 @@ void keyPressed() {
     if (key == '3') {
       if (precisedeleterects.size() > 0) {
         precisedeleterects.remove(2);
-        println(precisedeleterects.size());
+        println("PreciseDelete Arraylist size:" + precisedeleterects.size());
       }
     }
   }
@@ -103,7 +119,7 @@ void keyPressed() {
     if (key == '4') {
       if (precisedeleterects.size() > 0) {
         precisedeleterects.remove(3);
-        println(precisedeleterects.size());
+        println("PreciseDelete Arraylist size:" + precisedeleterects.size());
       }
     }
   }
@@ -112,7 +128,7 @@ void keyPressed() {
     if (key == '5') {
       if (precisedeleterects.size() > 0) {
         precisedeleterects.remove(4);
-        println(precisedeleterects.size());
+        println("PreciseDelete Arraylist size:" + precisedeleterects.size());
       }
     }
   }
@@ -121,7 +137,7 @@ void keyPressed() {
     if (key == '6') {
       if (precisedeleterects.size() > 0) {
         precisedeleterects.remove(5);
-        println(precisedeleterects.size());
+        println("PreciseDelete Arraylist size:" + precisedeleterects.size());
       }
     }
   }

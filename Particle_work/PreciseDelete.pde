@@ -6,7 +6,6 @@ class PreciseDelete {
   float RectHeight;
   String RectLabel;
 
-
   PreciseDelete(float _RectXpos, float _RectYpos, float _RectWidth, float _RectHeight, String _RectLabel) {
 
     RectXpos = _RectXpos;

@@ -1,7 +1,7 @@
 class Particle {
 
-  float ParticleXpos;
-  float ParticleYpos;
+  int ParticleXpos;
+  int ParticleYpos;
   float ParticleWidth;
   float ParticleHeight;
 
@@ -11,7 +11,9 @@ class Particle {
   float ParticleMass = 1;
   float gravity = 0.3;
 
-  Particle(float _ParticleXpos, float _ParticleYpos, float _ParticleWidth, float _ParticleHeight, float _ParticleSpeedX) {
+  //color ParticleColour;
+
+  Particle(int _ParticleXpos, int _ParticleYpos, float _ParticleWidth, float _ParticleHeight, float _ParticleSpeedX) {
 
     ParticleXpos = _ParticleXpos;
     ParticleYpos = _ParticleYpos;
@@ -22,7 +24,11 @@ class Particle {
 
   void drawParticle() {
 
-    fill(255);
+    color c = get(ParticleXpos, ParticleYpos);
+
+    fill(c);
+
+    //fill(255);
     strokeWeight(2);
     ellipse(ParticleXpos, ParticleYpos, ParticleWidth, ParticleHeight);
   }
